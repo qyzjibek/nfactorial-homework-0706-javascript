@@ -44,7 +44,7 @@ let buy = selectedCourse ? true : false;
 // Loops
 let allCourses = [nfStartCourse, iosCourse];
 let indices = [];
-for (i = 0; i < allCourses.length; i++) {
+for (let i = 0; i < allCourses.length; i++) {
     indices.push(i);
 }
 
@@ -53,19 +53,21 @@ while(indices.length > 0) {
     indices.pop();
 }
 
+/* test with window
 let i = window.prompt("Enter number of Days before Course: ");
 
 do {
     alert(`${i} days are left`);
     i--;
 } while(i > 0);
+*/
 
 // Functions
 
 // function decleration
 function clapClap() {
-    alert("clap clap, hi there. I am born");
-}
+    console.log("clap clap, hi there. I am born");
+} 
 
 nfStartCourse.greeting = clapClap;
 nfStartCourse.greeting();
@@ -80,3 +82,17 @@ let getRating = (course) => `${course.rating}`;
 console.log(getRating(nfStartCourse));
 
 export {descriptionOfCourse as info, clapClap as hi};
+
+// Rest, spread
+
+let status = {
+    buy: true,
+    course: 1,
+    mentor: "Dalida"
+};
+
+let {mentor, ...rest} = status;
+console.log(rest.course);
+
+let updatedCourse = {...iosCourse, ...status};
+console.log(updatedCourse);
